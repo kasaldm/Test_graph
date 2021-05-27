@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net5.0-windows</TargetFramework>
+        <UseWPF>true</UseWPF>
+        <RootNamespace>KiTPO</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\area.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Extended.Wpf.Toolkit" Version="4.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\graf.png" />
+      <Resource Include="Resources\graf.png" />
+    </ItemGroup>
+
+</Project>
