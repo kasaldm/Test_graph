@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:KiTPO"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="325" Width="800">
+        Title="MainWindow" Height="325" Width="1000">
     
     <DockPanel>
         <Menu DockPanel.Dock="Top">
@@ -30,7 +30,8 @@
         </Canvas>
 
         <StackPanel VerticalAlignment="Stretch">
-            <TextBlock Text="Вывод" />
+            <TextBlock Text="Вывод(и ввод с округление до сотых)" />
+            
             <ListView x:Name="OutputListView" Height="230">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -41,10 +42,11 @@
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="X: " />
-                <xctk:DoubleUpDown AllowTextInput="False" x:Name="XInput" Width="100" FormatString="F3" Increment=".1" />
+                <xctk:DoubleUpDown AllowTextInput="False" x:Name="XInput" Width="100" FormatString="F2" Increment=".1" />
                 <TextBlock Text="Y: " />
-                <xctk:DoubleUpDown AllowTextInput="False" x:Name="YInput" Width="100" FormatString="F3" Increment=".1" />
+                <xctk:DoubleUpDown AllowTextInput="False" x:Name="YInput" Width="100" FormatString="F2" Increment=".1" />
                 <Button Content="Установить" Click="ButtonBase_OnClick"/>
+                <Button Content="Заполнить случайными числами" Margin="10, 0, 0, 0" Click="ButtonBase_OnClick2"/>
             </StackPanel>
 
         </StackPanel>

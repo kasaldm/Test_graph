@@ -38,7 +38,6 @@ namespace KiTPO.Helpers
                     new() {(4, 6), (6, 7), (7, 4)}
                 }
             }
-            
         };
 
         public const double Accuracy = 0.02;

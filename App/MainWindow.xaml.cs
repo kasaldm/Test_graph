@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KiTPO.Extensions;
 using KiTPO.Helpers;
 using Microsoft.Win32;
 
@@ -36,9 +37,10 @@ namespace KiTPO
 
         public MainWindow()
         {
-            InitializeComponent();
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+            InitializeComponent();
             OutputListView.ItemsSource = OutputList;
+            SetInputValues(0,0);
         }
 
 
@@ -55,6 +57,7 @@ namespace KiTPO
         private void Canvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var pos = e.GetPosition(MainImage);
+            PushToOutput("Ввод точки через график");
             ProcessPoint(pos.X, pos.Y);
         }
 
@@ -84,11 +87,12 @@ namespace KiTPO
             if (x != null && y != null)
             {
                 (x, y) = CoordinatesProcessing.UnFlattenCoordinates(x.Value, y.Value, RootX, RootY, ScaleValue);
+                PushToOutput("Точка вводится через клавиатуру");
                 ProcessPoint(x.Value, y.Value);
-                XInput.Value = null;
-                YInput.Value = null;
+                
             }
             else PushToOutput("Ошибка ввода данных");
+            SetInputValues(0,0);
         }
 
         private void ResetCanvas()
@@ -124,5 +128,15 @@ namespace KiTPO
                 }
             }
         }
+        
+        private void SetInputValues(double x, double y)
+        {
+            XInput.Text = x.ToString(CultureInfo.InvariantCulture);
+            YInput.Text = y.ToString(CultureInfo.InvariantCulture);
+        }
+
+        private void ButtonBase_OnClick2(object sender, RoutedEventArgs e)
+            => SetInputValues(NumberExtensions.RandomInRange(NumberExtensions.Min, NumberExtensions.Max),
+                NumberExtensions.RandomInRange(NumberExtensions.Min, NumberExtensions.Max));
     }
 }
