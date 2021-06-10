@@ -72,7 +72,6 @@ namespace KiTPO
                 Height = 5
             };
 
-            Canvas.Children.Add(newEllipse);
             Canvas.SetLeft(newEllipse, x);
             Canvas.SetTop(newEllipse, y);
             var (position, xFlatten, yFlatten, areaNum) =
@@ -86,12 +85,13 @@ namespace KiTPO
             var y = YInput.Value;
             if (x != null && y != null)
             {
-                (x, y) = CoordinatesProcessing.UnFlattenCoordinates(x.Value, y.Value, RootX, RootY, ScaleValue);
+                
+                var z = x + y;
                 PushToOutput("Точка вводится через клавиатуру");
                 ProcessPoint(x.Value, y.Value);
                 
             }
-            else PushToOutput("Ошибка ввода данных");
+            
             SetInputValues(0,0);
         }
 

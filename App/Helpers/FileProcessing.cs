@@ -36,7 +36,7 @@ namespace KiTPO.Helpers
             => x.Item1 switch
             {
                 null => "Точки вводятся через файл, выявлено " + x.Item2.Count + " точек",
-                FileReadError.WrongFormat => "Неправильный формат файла",
+                FileReadError.WrongFormat => "Некорректные данные",
                 FileReadError.FileIsEmpty => "Файл пуст",
                 FileReadError.OutOfRange => "Точка выходит за пределы ОДЗ"
             };

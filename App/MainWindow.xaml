@@ -10,7 +10,7 @@
     
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Файл">
+            <MenuItem Header="_Ввод из файла">
                 <MenuItem Click="MenuItem_OnClick" Header="_Открыть" />
             </MenuItem>
         </Menu>
@@ -42,9 +42,9 @@
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="X: " />
-                <xctk:DoubleUpDown AllowTextInput="False" x:Name="XInput" Width="100" FormatString="F2" Increment=".1" />
+                <xctk:DoubleUpDown AllowTextInput="False" Minimum="-30" Maximum="30" x:Name="XInput" Width="100" FormatString="F2" Increment=".1" />
                 <TextBlock Text="Y: " />
-                <xctk:DoubleUpDown AllowTextInput="False" x:Name="YInput" Width="100" FormatString="F2" Increment=".1" />
+                <xctk:DoubleUpDown AllowTextInput="False" Minimum="-30" Maximum="30" x:Name="YInput" Width="100" FormatString="F2" Increment=".1" />
                 <Button Content="Установить" Click="ButtonBase_OnClick"/>
                 <Button Content="Заполнить случайными числами" Margin="10, 0, 0, 0" Click="ButtonBase_OnClick2"/>
             </StackPanel>
